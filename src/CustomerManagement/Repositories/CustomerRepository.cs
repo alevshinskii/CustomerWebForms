@@ -94,6 +94,38 @@ namespace CustomerManagement.Repositories
 
         }
 
+        public List<Customer> ReadAll()
+        {
+            var customerList = new List<Customer>();
+            using var connection = GetConnection();
+            connection.Open();
+            var command = new SqlCommand("SELECT * FROM Customer", connection);
+
+
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    var customer = new Customer();
+
+                    customer.Id = int.Parse(reader["CustomerId"].ToString());
+                    customer.FirstName = reader["FirstName"]?.ToString();
+                    customer.LastName = reader["LastName"].ToString();
+                    customer.Email = reader["Email"]?.ToString();
+                    customer.PhoneNumber = reader["PhoneNumber"]?.ToString();
+                    if (decimal.TryParse(reader["TotalPurchasesAmount"].ToString(), out decimal totalPurchasesAmount))
+                        customer.TotalPurchasesAmount = totalPurchasesAmount;
+                    else customer.TotalPurchasesAmount = null;
+
+                    customerList.Add(customer);
+                }
+
+            }
+
+            return customerList;
+
+        }
+
         public void Update(Customer entity)
         {
             using (var connection = GetConnection())
@@ -137,7 +169,7 @@ namespace CustomerManagement.Repositories
 
                 command.ExecuteNonQuery();
             }
-            
+
         }
 
         public void Delete(int entityId)

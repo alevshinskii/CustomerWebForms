@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace CustomerManagement.WebForms
 {
-    public partial class Contact : Page
+    public partial class CustomerAdd : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

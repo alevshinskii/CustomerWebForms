@@ -119,6 +119,38 @@ namespace CustomerManagement.Repositories
 
         }
 
+        public List<Address> ReadAll()
+        {
+            var addressList = new List<Address>();
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                var command = new SqlCommand("SELECT * FROM Address", connection);
+                
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        var address = new Address();
+
+                        address.AddressId = int.Parse(reader["AddressId"].ToString());
+                        address.AddressLine = reader["AddressLine"].ToString();
+                        address.AddressLine2 = reader["AddressLine2"].ToString();
+                        address.AddressType = reader["AddressType"].ToString();
+                        address.CustomerId = int.Parse(reader["CustomerId"].ToString());
+                        address.City = reader["City"].ToString();
+                        address.Country = reader["Country"].ToString();
+                        address.PostalCode = reader["PostalCode"].ToString();
+                        address.State = reader["State"].ToString();
+
+                        addressList.Add(address);
+                    }
+                }
+
+            }
+            return addressList;
+        }
+
         public void Update(Address entity)
         {
             using (var connection = GetConnection())

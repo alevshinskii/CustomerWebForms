@@ -11,7 +11,7 @@ namespace CustomerManagement.WebForms
 {
 
 
-    public partial class About
+    public partial class CustomerAdd
     {
     }
 }
