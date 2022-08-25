@@ -10,19 +10,19 @@
                 Id
             </td>
             <td>
-                FirstName
+                First Name
             </td>
             <td>
-                LastName
+                Last Name
             </td>
             <td>
                 Email
             </td>
             <td>
-                PhoneNumber
+                Phone Number
             </td>
             <td>
-                TotalPurchasesAmount
+                Total Purchases Amount
             </td>
             <td></td>
             <td></td>

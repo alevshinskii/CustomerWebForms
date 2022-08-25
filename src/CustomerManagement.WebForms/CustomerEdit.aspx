@@ -4,30 +4,31 @@
     
     <form>
         <div class="form-group">
-            <label for="IdInput">First Name</label>
-            <input type="number" class="form-control disabled" id="IdInput" placeholder="Id" value="" disabled>
+            <asp:Label Text="Id" runat="server"></asp:Label>
+            <asp:TextBox type="text" class="form-control" ID="IdInput" placeholder="Id" ReadOnly="True" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="FirstNameInput">First Name</label>
-            <input type="text" class="form-control" id="FirstNameInput" placeholder="First Name">
+            <asp:Label Text="First Name" runat="server"></asp:Label>
+            <asp:TextBox type="text" class="form-control" ID="FirstNameInput" placeholder="First Name" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="LastNameInput">Last Name</label>
-            <input type="text" class="form-control" id="LastNameInput" placeholder="Last Name">
+            <asp:Label Text="Last Name" runat="server"></asp:Label>
+            <asp:TextBox type="text" class="form-control" ID="LastNameInput" placeholder="Last Name" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="PhoneNumberInput">Phone Number</label>
-            <input type="tel" class="form-control" id="PhoneNumberInput" placeholder="Phone Number">
+            <asp:Label Text="Phone Number" runat="server"></asp:Label>
+            <asp:TextBox type="tel" class="form-control" ID="PhoneNumberInput" placeholder="Phone Number" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="EmailInput">Email</label>
-            <input type="email" class="form-control" id="EmailInput" placeholder="Email">
+            <asp:Label Text="Email" runat="server"></asp:Label>
+            <asp:TextBox type="email" class="form-control" ID="EmailInput" placeholder="Email" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="TotalPurchasesAmountInput">Total Purchases Amount</label>
-            <input type="number" class="form-control" id="TotalPurchasesAmountInput" placeholder="Total Purchases Amount">
+            <asp:Label Text="Total Purchases Amount" runat="server"></asp:Label>
+            <asp:TextBox type="number" class="form-control" ID="TotalPurchasesAmountInput" placeholder="Total Purchases Amount" runat="server"></asp:TextBox>
         </div>
 
-        <button type="submit" class="btn btn-primary">Edit</button>
+        <asp:Button type="submit" class="btn btn-success" OnClick="OnClickEdit" runat="server" Text="Edit"></asp:Button>
+
     </form>
 </asp:Content>

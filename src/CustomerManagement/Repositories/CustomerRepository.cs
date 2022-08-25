@@ -126,7 +126,7 @@ namespace CustomerManagement.Repositories
 
         }
 
-        public void Update(Customer entity)
+        public bool Update(Customer entity)
         {
             using (var connection = GetConnection())
             {
@@ -167,7 +167,8 @@ namespace CustomerManagement.Repositories
                 command.Parameters.Add(totalPurchasesAmountParameter);
 
 
-                command.ExecuteNonQuery();
+                if (command.ExecuteNonQuery() > 0) return true;
+                else return false;
             }
 
         }

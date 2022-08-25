@@ -5,7 +5,7 @@
         TEntity Create(TEntity entity);
         TEntity Read(int entityId);
         List<TEntity> ReadAll();
-        void Update(TEntity entity);
+        bool Update(TEntity entity);
         void Delete(int entityId);
     }
 }

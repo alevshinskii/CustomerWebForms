@@ -104,7 +104,7 @@ namespace CustomerManagement.Repositories
             return notesList;
         }
 
-        public void Update(Note entity)
+        public bool Update(Note entity)
         {
             using (var connection = GetConnection())
             {
@@ -130,7 +130,8 @@ namespace CustomerManagement.Repositories
                 command.Parameters.Add(customerIdParameter);
                 command.Parameters.Add(textParameter);
 
-                command.ExecuteNonQuery();
+                if (command.ExecuteNonQuery() > 0) return true;
+                else return false;
             }
 
         }

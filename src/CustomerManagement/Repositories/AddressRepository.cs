@@ -151,7 +151,7 @@ namespace CustomerManagement.Repositories
             return addressList;
         }
 
-        public void Update(Address entity)
+        public bool Update(Address entity)
         {
             using (var connection = GetConnection())
             {
@@ -208,7 +208,8 @@ namespace CustomerManagement.Repositories
                 command.Parameters.Add(postalCodeParameter);
                 command.Parameters.Add(stateParameter);
 
-                command.ExecuteNonQuery();
+                if (command.ExecuteNonQuery() > 0) return true;
+                else return false;
             }
 
         }
