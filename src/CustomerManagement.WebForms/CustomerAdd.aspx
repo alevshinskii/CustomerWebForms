@@ -4,27 +4,28 @@
     
     <form>
         <div class="form-group">
-            <label for="FirstNameInput">First Name</label>
-            <input type="text" class="form-control" id="FirstNameInput" placeholder="First Name">
+            <asp:Label Text="First Name" runat="server"></asp:Label>
+            <asp:TextBox type="text" class="form-control" ID="FirstNameInput" placeholder="First Name" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="LastNameInput">Last Name</label>
-            <input type="text" class="form-control" id="LastNameInput" placeholder="Last Name">
+            <asp:Label Text="Last Name" runat="server"></asp:Label>
+            <asp:TextBox type="text" class="form-control" ID="LastNameInput" placeholder="Last Name" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="PhoneNumberInput">Phone Number</label>
-            <input type="tel" class="form-control" id="PhoneNumberInput" placeholder="Phone Number">
+            <asp:Label Text="Phone Number" runat="server"></asp:Label>
+            <asp:TextBox type="tel" class="form-control" ID="PhoneNumberInput" placeholder="Phone Number" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="EmailInput">Email</label>
-            <input type="email" class="form-control" id="EmailInput" placeholder="Email">
+            <asp:Label Text="Email" runat="server"></asp:Label>
+            <asp:TextBox type="email" class="form-control" ID="EmailInput" placeholder="Email" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="TotalPurchasesAmountInput">Total Purchases Amount</label>
-            <input type="number" class="form-control" id="TotalPurchasesAmountInput" placeholder="Total Purchases Amount">
+            <asp:Label Text="Total Purchases Amount" runat="server"></asp:Label>
+            <asp:TextBox type="number" class="form-control" ID="TotalPurchasesAmountInput" placeholder="Total Purchases Amount" runat="server"></asp:TextBox>
         </div>
 
-        <button type="submit" class="btn btn-primary">Add</button>
+        <asp:Button type="submit" class="btn btn-primary" OnClick="OnClickCreate" runat="server" Text="Add"></asp:Button>
+
     </form>
 
 </asp:Content>

@@ -1,10 +1,8 @@
-using CustomerManagement.Entities;
 using CustomerManagement.Interfaces;
-using CustomerManagement.Repositories;
 using FluentAssertions;
 using Moq;
 
-namespace CustomerManagement.WebForms.Test
+namespace CustomerManagement.WebForms.Test.Customer
 {
     public class CustomersListTest
     {
@@ -18,11 +16,11 @@ namespace CustomerManagement.WebForms.Test
         [Fact]
         public void ShouldBeAbleToLoadCustomers()
         {
-            var customerRepository = new Mock<IRepository<Customer>>();
-            customerRepository.Setup(x => x.ReadAll()).Returns(()=> new List<Customer>()
+            var customerRepository = new Mock<IRepository<Entities.Customer>>();
+            customerRepository.Setup(x => x.ReadAll()).Returns(() => new List<Entities.Customer>()
                 {
-                    new Customer(),
-                    new Customer()
+                    new Entities.Customer(),
+                    new Entities.Customer()
                 });
 
             CustomersPage page = new CustomersPage(customerRepository.Object);
