@@ -28,5 +28,6 @@ namespace CustomerManagement.WebForms.Test.Customer
 
             page.CustomersList.Should().HaveSameCount(customerRepository.Object.ReadAll());
         }
+
     }
 }

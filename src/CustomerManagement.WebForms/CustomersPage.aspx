@@ -28,7 +28,7 @@
             <td></td>
         </tr>
         </thead>
-        <% foreach (var customer in CustomersList)
+        <% foreach (var customer in CustomersListOnPage)
            { %>
 
             <tr>
@@ -60,4 +60,13 @@
         <%
             } %>
     </table>
+    
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <% for (int i = 1; i <= ((CustomersList.Count-1) / 10)+1; i++)
+               { %>
+            <li><a href="?page=<%=i %>"><%= i %></a></li>
+                <% } %>
+        </ul>
+    </nav>
 </asp:Content>
