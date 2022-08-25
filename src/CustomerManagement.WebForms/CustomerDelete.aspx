@@ -4,30 +4,31 @@
     <h3>Are you sure?</h3>
     <form>
         <div class="form-group">
-            <label for="IdInput">Id</label>
-            <input type="number" class="form-control " id="IdInput" placeholder="Id" disabled>
+            <asp:Label Text="Id" runat="server"></asp:Label>
+            <asp:TextBox type="text" class="form-control" ID="IdInput" placeholder="Id" ReadOnly="True" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="FirstNameInput">First Name</label>
-            <input type="text" class="form-control " id="FirstNameInput" placeholder="First Name" disabled>
+            <asp:Label Text="First Name" runat="server"></asp:Label>
+            <asp:TextBox type="text" class="form-control" ID="FirstNameInput" placeholder="First Name" ReadOnly="True" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="LastNameInput">Last Name</label>
-            <input type="text" class="form-control " id="LastNameInput" placeholder="Last Name" disabled>
+            <asp:Label Text="Last Name" runat="server"></asp:Label>
+            <asp:TextBox type="text" class="form-control" ID="LastNameInput" placeholder="Last Name" ReadOnly="True" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="PhoneNumberInput">Phone Number</label>
-            <input type="tel" class="form-control " id="PhoneNumberInput" placeholder="Phone Number" disabled>
+            <asp:Label Text="Phone Number" runat="server"></asp:Label>
+            <asp:TextBox type="tel" class="form-control" ID="PhoneNumberInput" placeholder="Phone Number" ReadOnly="True" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="EmailInput">Email</label>
-            <input type="email" class="form-control " id="EmailInput" placeholder="Email" disabled>
+            <asp:Label Text="Email" runat="server"></asp:Label>
+            <asp:TextBox type="email" class="form-control" ID="EmailInput" placeholder="Email" ReadOnly="True" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="TotalPurchasesAmountInput">Total Purchases Amount</label>
-            <input type="number" class="form-control " id="TotalPurchasesAmountInput" placeholder="Total Purchases Amount" value="2938019283" disabled>
+            <asp:Label Text="Total Purchases Amount" runat="server"></asp:Label>
+            <asp:TextBox type="number" class="form-control" ID="TotalPurchasesAmountInput" placeholder="Total Purchases Amount" ReadOnly="True" runat="server"></asp:TextBox>
         </div>
 
-        <button type="submit" class="btn btn-danger">Delete</button>
+        <asp:Button type="submit" class="btn btn-danger" OnClick="OnClickDelete" runat="server" Text="Delete"></asp:Button>
+
     </form>
 </asp:Content>

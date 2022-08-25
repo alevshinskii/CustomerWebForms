@@ -12,7 +12,7 @@ public class CustomerEditTest
     }
 
     [Fact]
-    public void ShouldBeAbleToCreateCustomer()
+    public void ShouldUpdateCustomer()
     {
         var customerRepository = new Mock<IRepository<Entities.Customer>>();
         customerRepository.Setup(x => x.Update(new Entities.Customer())).Returns(true);

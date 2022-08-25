@@ -77,15 +77,17 @@ namespace CustomerManagement.Repositories
                 {
                     if (reader.Read())
                     {
-                        return new Customer()
-                        {
-                            Id = int.Parse(reader["CustomerId"].ToString()),
-                            FirstName = reader["FirstName"].ToString(),
-                            LastName = reader["LastName"].ToString(),
-                            Email = reader["Email"].ToString(),
-                            PhoneNumber = reader["PhoneNumber"].ToString(),
-                            TotalPurchasesAmount = decimal.Parse(reader["TotalPurchasesAmount"].ToString())
-                        };
+                        Customer customer= new Customer();
+
+                        customer.Id = int.Parse(reader["CustomerId"]?.ToString());
+                        customer.FirstName = reader["FirstName"]?.ToString();
+                        customer.LastName = reader["LastName"].ToString();
+                        customer.Email = reader["Email"]?.ToString();
+                        customer.PhoneNumber = reader["PhoneNumber"]?.ToString();
+                        if(decimal.TryParse(reader["TotalPurchasesAmount"]?.ToString(), out decimal total))
+                            customer.TotalPurchasesAmount = total;
+
+                        return customer;
                     }
                     return null;
 
@@ -173,23 +175,37 @@ namespace CustomerManagement.Repositories
 
         }
 
-        public void Delete(int entityId)
+        public bool Delete(int entityId)
         {
             using (var connection = GetConnection())
             {
                 connection.Open();
-                var command = new SqlCommand("DELETE FROM Customer WHERE CustomerId = @Id", connection);
 
+                var commandDeleteAddresses = new SqlCommand("DELETE FROM Address WHERE CustomerId = @Id", connection);
                 var idParameter = new SqlParameter("@Id", SqlDbType.Int)
                 {
                     Value = entityId
                 };
+                commandDeleteAddresses.Parameters.Add(idParameter);
+                commandDeleteAddresses.ExecuteNonQuery();
 
-                command.Parameters.Add(idParameter);
+                var commandDeleteNotes = new SqlCommand("DELETE FROM Notes WHERE CustomerId = @Id", connection);
+                idParameter = new SqlParameter("@Id", SqlDbType.Int)
+                {
+                    Value = entityId
+                };
+                commandDeleteNotes.Parameters.Add(idParameter);
+                commandDeleteNotes.ExecuteNonQuery();
 
-                command.ExecuteNonQuery();
-
-                connection.Close();
+                var commandDeleteCustomer = new SqlCommand("DELETE FROM Customer WHERE CustomerId = @Id", connection);
+                idParameter = new SqlParameter("@Id", SqlDbType.Int)
+                {
+                    Value = entityId
+                };
+                commandDeleteCustomer.Parameters.Add(idParameter);
+                if (commandDeleteCustomer.ExecuteNonQuery() > 0) return true;
+                else return false;
+                
             }
 
         }

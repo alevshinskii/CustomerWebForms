@@ -15,7 +15,7 @@ namespace CustomerManagement.WebForms.Test.Customer
         }
 
         [Fact]
-        public void ShouldBeAbleToCreateCustomer()
+        public void ShouldCreateCustomer()
         {
             var customerRepository = new Mock<IRepository<Entities.Customer>>();
             customerRepository.Setup(x => x.Create(new Entities.Customer())).Returns(() => new Entities.Customer(){Id=1});

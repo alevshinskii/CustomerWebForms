@@ -214,7 +214,7 @@ namespace CustomerManagement.Repositories
 
         }
 
-        public void Delete(int entityId)
+        public bool Delete(int entityId)
         {
             using (var connection = GetConnection())
             {
@@ -228,9 +228,9 @@ namespace CustomerManagement.Repositories
 
                 command.Parameters.Add(idParameter);
 
-                command.ExecuteNonQuery();
-
-                connection.Close();
+                if (command.ExecuteNonQuery() > 0) return true;
+                else return false;
+                
             }
         }
     }
