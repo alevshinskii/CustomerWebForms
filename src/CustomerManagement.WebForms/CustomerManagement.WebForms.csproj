@@ -131,6 +131,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="CustomersPage.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="NotesListPage.aspx" />
     <Content Include="NotFound.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -227,6 +228,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="NotesListPage.aspx.cs">
+      <DependentUpon>NotesListPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotesListPage.aspx.designer.cs">
+      <DependentUpon>NotesListPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="NotFound.aspx.cs">
       <DependentUpon>NotFound.aspx</DependentUpon>
