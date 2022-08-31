@@ -104,6 +104,42 @@ namespace CustomerManagement.Repositories
             return notesList;
         }
 
+        public List<Note> ReadAll(int customerId)
+        {
+            var notesList = new List<Note>();
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                var command = new SqlCommand("SELECT * FROM Notes WHERE CustomerId=@CustomerId", connection);
+
+                
+                var idParam = new SqlParameter("@CustomerId", SqlDbType.Int)
+                {
+                    Value = customerId
+                };
+
+                command.Parameters.Add(idParam);
+
+                using (var reader = command.ExecuteReader())
+                {
+
+                    while (reader.Read())
+                    {
+                        var note = new Note();
+
+                        note.Id = int.Parse(reader["NoteId"].ToString());
+                        note.CustomerId = int.Parse(reader["CustomerId"].ToString());
+                        note.Text = reader["Note"].ToString();
+
+                        notesList.Add(note);
+                    }
+                }
+
+            }
+
+            return notesList;
+        }
+
         public bool Update(Note entity)
         {
             using (var connection = GetConnection())

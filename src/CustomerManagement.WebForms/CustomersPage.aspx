@@ -26,6 +26,8 @@
             </td>
             <td></td>
             <td></td>
+            <td></td>
+            <td></td>
         </tr>
         </thead>
         <% foreach (var customer in CustomersListOnPage)
@@ -49,6 +51,12 @@
                 </td>
                 <td>
                     <%= customer.TotalPurchasesAmount %>
+                </td>
+                <td>
+                    <a href="AddressesListPage?CustomerId=<%=customer.Id %>">Addresses</a>
+                </td>
+                <td>
+                    <a href="NotesListPage?CustomerId=<%=customer.Id %>">Notes</a>
                 </td>
                 <td>
                     <a href="CustomerEdit?CustomerId=<%=customer.Id %>">Edit</a>

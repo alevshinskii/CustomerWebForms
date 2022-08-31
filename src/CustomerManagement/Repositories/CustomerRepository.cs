@@ -128,6 +128,11 @@ namespace CustomerManagement.Repositories
 
         }
 
+        public List<Customer> ReadAll(int entityId)
+        {
+            return ReadAll();
+        }
+
         public bool Update(Customer entity)
         {
             using (var connection = GetConnection())

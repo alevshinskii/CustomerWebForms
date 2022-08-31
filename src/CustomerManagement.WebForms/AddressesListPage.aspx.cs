@@ -55,7 +55,7 @@ namespace CustomerManagement.WebForms
         }
         public void GetAddresses(int customerId)
         {
-            AddressesList=AddressRepository.ReadAll();
+            AddressesList=AddressRepository.ReadAll(customerId);
         }
     }
 }

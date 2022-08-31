@@ -129,7 +129,46 @@ namespace CustomerManagement.Repositories
                 
                 using (var reader = command.ExecuteReader())
                 {
-                    if (reader.Read())
+                    while (reader.Read())
+                    {
+                        var address = new Address();
+
+                        address.AddressId = int.Parse(reader["AddressId"].ToString());
+                        address.AddressLine = reader["AddressLine"].ToString();
+                        address.AddressLine2 = reader["AddressLine2"].ToString();
+                        address.AddressType = reader["AddressType"].ToString();
+                        address.CustomerId = int.Parse(reader["CustomerId"].ToString());
+                        address.City = reader["City"].ToString();
+                        address.Country = reader["Country"].ToString();
+                        address.PostalCode = reader["PostalCode"].ToString();
+                        address.State = reader["State"].ToString();
+
+                        addressList.Add(address);
+                    }
+                }
+
+            }
+            return addressList;
+        }
+
+        public List<Address> ReadAll(int customerId)
+        {
+            var addressList = new List<Address>();
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                var command = new SqlCommand("SELECT * FROM Address WHERE CustomerId=@CustomerId", connection);
+
+                var idParam = new SqlParameter("@CustomerId", SqlDbType.Int)
+                {
+                    Value = customerId
+                };
+
+                command.Parameters.Add(idParam);
+                
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
                     {
                         var address = new Address();
 
