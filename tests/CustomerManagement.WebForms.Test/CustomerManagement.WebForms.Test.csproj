@@ -32,4 +32,9 @@
     <Reference Include="System.Web" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Address\" />
+    <Folder Include="Note\" />
+  </ItemGroup>
+
 </Project>

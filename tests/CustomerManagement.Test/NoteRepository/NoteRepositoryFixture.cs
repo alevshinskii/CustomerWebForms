@@ -25,9 +25,9 @@ namespace CustomerManagement.Test.NoteRepository
             };
         }
 
-        public Repositories.NoteRepository GetNoteRepository()
+        public NoteTestRepository GetNoteRepository()
         {
-            return new Repositories.NoteRepository();
+            return new NoteTestRepository();
         }
     }
 }

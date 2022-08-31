@@ -31,9 +31,9 @@ namespace CustomerManagement.Test.AddressRepository
             };
         }
 
-        public Repositories.AddressRepository GetAddressRepository()
+        public AddressTestRepository GetAddressRepository()
         {
-            return new Repositories.AddressRepository();
+            return new AddressTestRepository();
         }
     }
 }

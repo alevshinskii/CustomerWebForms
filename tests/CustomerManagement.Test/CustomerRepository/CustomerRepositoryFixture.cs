@@ -25,7 +25,6 @@ namespace CustomerManagement.Test.CustomerRepository
                 commandClearCustomer.ExecuteNonQuery();
 
 
-
                 connection.Close();
             }
 
@@ -44,9 +43,9 @@ namespace CustomerManagement.Test.CustomerRepository
             };
         }
 
-        public Repositories.CustomerRepository GetCustomerRepository()
+        public CustomerTestRepository GetCustomerRepository()
         {
-            return new Repositories.CustomerRepository();
+            return new CustomerTestRepository();
         }
     }
 }
