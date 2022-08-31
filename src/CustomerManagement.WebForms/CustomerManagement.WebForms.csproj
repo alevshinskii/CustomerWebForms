@@ -105,6 +105,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddressAdd.aspx" />
+    <Content Include="AddressDelete.aspx" />
+    <Content Include="AddressEdit.aspx" />
     <Content Include="AddressesListPage.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -164,6 +167,27 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddressAdd.aspx.cs">
+      <DependentUpon>AddressAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddressAdd.aspx.designer.cs">
+      <DependentUpon>AddressAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddressDelete.aspx.cs">
+      <DependentUpon>AddressDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddressDelete.aspx.designer.cs">
+      <DependentUpon>AddressDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddressEdit.aspx.cs">
+      <DependentUpon>AddressEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddressEdit.aspx.designer.cs">
+      <DependentUpon>AddressEdit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddressesListPage.aspx.cs">
       <DependentUpon>AddressesListPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

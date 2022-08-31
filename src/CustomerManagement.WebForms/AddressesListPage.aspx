@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Addresses List" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddressesListPage.aspx.cs" Inherits="CustomerManagement.WebForms.AddressesListPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %></h2>
-    <a href="AddressAdd" class="m">Add new Address</a>
+    <a href="AddressAdd?CustomerId=<%=CustomerId %>" class="m">Add new Address</a>
     <table class="table table-hover table-striped">
         <thead>
         <tr>
@@ -50,10 +50,10 @@
                     <%= address.State %>
                 </td>
                 <td>
-                    <a href="CustomerEdit?CustomerId=<%=address.AddressId %>">Edit</a>
+                    <a href="AddressEdit?Id=<%=address.AddressId %>">Edit</a>
                 </td>
                 <td>
-                    <a href="CustomerDelete?CustomerId=<%=address.AddressId %>">Delete</a>
+                    <a href="AddressDelete?Id=<%=address.AddressId %>">Delete</a>
                 </td>
             </tr>
         <%
