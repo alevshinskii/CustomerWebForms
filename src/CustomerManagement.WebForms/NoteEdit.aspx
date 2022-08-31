@@ -15,6 +15,9 @@
         <div class="form-group">
             <asp:Label Text="Text" runat="server"></asp:Label>
             <asp:TextBox type="text" class="form-control" ID="TextInput" placeholder="Text" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ControlToValidate="TextInput" CssClass="text-danger" ErrorMessage="Text can't be empty" ValidateEmptyText="True" SetFocusOnError="True" runat="server"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ControlToValidate="TextInput" CssClass="text-danger" ValidationExpression="^.{0,255}$" ErrorMessage="Text is too long" runat="server"></asp:RegularExpressionValidator>
+
         </div>
 
 
