@@ -4,7 +4,7 @@
 
     <h2><%: Title %></h2>
 
-    <form>
+    <asp:FormView runat="server">
         <div class="form-group">
             <asp:Label Text="Customer Id" runat="server"></asp:Label>
             <asp:TextBox type="text" class="form-control" ID="CustomerIdInput" placeholder="Customer Id" ReadOnly="True" runat="server"></asp:TextBox>
@@ -40,5 +40,5 @@
 
         <asp:Button type="submit" class="btn btn-success" OnClick="OnClickAdd" runat="server" Text="Add"></asp:Button>
 
-    </form>
+    </asp:FormView>
 </asp:Content>
